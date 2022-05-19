@@ -140,7 +140,10 @@ fn main() {
             return;
         }
     }
+    #[cfg(not(feature = "experimental"))]
     ui::start(&mut args[..]);
+    #[cfg(feature = "experimental")]
+    tauri::start(&mut args[..]);
     _async_logger_holder.map(|x| x.flush());
 }
 

@@ -17,6 +17,8 @@ pub use self::rendezvous_mediator::*;
 pub mod common;
 #[cfg(not(any(target_os = "ios")))]
 pub mod ipc;
+#[cfg(feature = "experimental")]
+pub mod tauri;
 #[cfg(not(any(target_os = "android", target_os = "ios", feature = "cli")))]
 pub mod ui;
 mod version;
@@ -39,6 +41,5 @@ mod license;
 mod port_forward;
 #[cfg(windows)]
 mod tray;
-
 #[cfg(windows)]
 pub mod clipboard_file;

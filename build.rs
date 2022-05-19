@@ -93,4 +93,7 @@ fn main() {
     build_windows();
     #[cfg(target_os = "macos")]
     println!("cargo:rustc-link-lib=framework=ApplicationServices");
+
+    #[cfg(feature = "experimental")]
+    tauri_build::build();
 }
